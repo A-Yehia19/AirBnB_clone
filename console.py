@@ -12,11 +12,13 @@ from models.state import State
 from models.user import User
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """Defines the Command Interpreter."""
 
     prompt = "(hbnb)"
-    classes = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
+    classes = ["Amenity", "BaseModel", "City",
+               "Place", "Review", "State", "User"]
 
     def do_EOF(self, arg):
         """ EOF command to exit the program"""
@@ -41,7 +43,8 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_show(self, arg):
-        """ Prints the string representation of an instance based on the class name and id"""
+        """ Prints the string representation of an instance
+        based on the class name and id """
         a = arg.split()
         if not arg:
             print("** class name missing **")
@@ -59,7 +62,7 @@ class HBNBCommand(cmd.Cmd):
         a = arg.split()
         if not arg:
             print("** class name missing **")
-        elif elif a[0] not in HBNBCommand.classes:
+        elif a[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
         elif len(a) < 2:
             print("** instance id missing **")
@@ -69,13 +72,11 @@ class HBNBCommand(cmd.Cmd):
             del storage.all()["{}.{}".format(a[0], a[1])]
             storage.save()
 
-    def d0_all(self, arg):
-        """Prints all string representation of all instances based or not on the class name"""
+    def do_all(self, arg):
+        """Prints all string representation of all instances
+        based or not on the class name"""
         if arg not in HBNBCommand.classes:
             print("** class doesn't exist **")
-
-
-
 
 
 if __name__ == '__main__':
