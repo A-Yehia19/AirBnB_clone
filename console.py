@@ -79,11 +79,11 @@ class HBNBCommand(cmd.Cmd):
         if arg and a[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
         else:
-            l = []
+            li = []
             for v in storage.all().values():
                 if not arg or a[0] == v.__class__.__name__:
-                    l.append(str(v))
-            print(l)
+                    li.append(str(v))
+            print(li)
 
     def do_count(self, arg):
         """retrieve the number of instances of a class"""
@@ -93,9 +93,6 @@ class HBNBCommand(cmd.Cmd):
             if a[0] == v.__class__.__name__:
                 count += 1
         print(count)
-
-
-
 
 
 if __name__ == '__main__':
