@@ -75,8 +75,27 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """Prints all string representation of all instances
         based or not on the class name"""
-        if arg not in HBNBCommand.classes:
+        a = arg.split()
+        if arg and a[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
+        else:
+            l = []
+            for v in storage.all().values():
+                if not arg or a[0] == v.__class__.__name__:
+                    l.append(str(v))
+            print(l)
+
+    def do_count(self, arg):
+        """retrieve the number of instances of a class"""
+        count = 0
+        a = arg.split()
+        for v in storage.all().values():
+            if a[0] == v.__class__.__name__:
+                count += 1
+        print(count)
+
+
+
 
 
 if __name__ == '__main__':
