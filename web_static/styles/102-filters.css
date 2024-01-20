@@ -46,3 +46,39 @@
 .locations{
     border-right: 1px solid #DDDDDD;
 }
+
+.popover{
+    display: none;
+    position: relative;
+    background-color: #FAFAFA;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    width: 95.5%;
+    left: -30px;
+}
+
+.popover h2{
+    font-size: 16px;
+    margin: 0;
+}
+
+.popover, .popover ul{
+    list-style-type: none;
+}
+
+.popover li{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.popover ul li{
+    padding: 0px;
+}
+
+.locations:hover .popover{
+    display: block;
+}
+
+.amenities:hover .popover{
+    display: block;
+}
